@@ -1,7 +1,7 @@
 # Weather
 
-This template should help get you started developing with Vue 3 in Vite.
-
+is a weather app built with Vue 3 and Vite. It allows users to search for current weather conditions and forecasts for any location worldwide.
+ 
 ## Recommended IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).

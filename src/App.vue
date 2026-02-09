@@ -1,12 +1,13 @@
 <template>
-  <div>
-    <h1>Weather App</h1>
+  <div class="flex flex-col min-h-screen font-Roboto bg-blue-500">
+    <SiteNavigation/>
     <RouterView />
   </div>
 </template>
 
 <script setup>
 import { RouterView } from 'vue-router'
+import SiteNavigation from './components/SiteNavigation.vue';
  
 </script>
 
