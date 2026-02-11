@@ -9,16 +9,14 @@
           Sorry,somthing went wrong please try again
         </p>
 
-        <p
-        v-if="!searchError && searchResults.length===0"
-        >
-        No Results match query, try a diffent term.
-      </p>
-      <template v-else>
-        <li v-for="result in searchResults" :key="result.place_id" class="py-2 cursor-pointer"
-          @click="previewCity(result)">
-          {{ result.display_name }}
-        </li>
+        <p v-if="!searchError && searchResults.length === 0">
+          No Results match query, try a diffent term.
+        </p>
+        <template v-else>
+          <li v-for="result in searchResults" :key="result.place_id" class="py-2 cursor-pointer"
+            @click="previewCity(result)">
+            {{ result.display_name }}
+          </li>
         </template>
       </ul>
     </div>
@@ -28,7 +26,10 @@
 <script setup>
 import { ref } from "vue";
 import axios from "axios";
+import { useRouter } from "vue-router";
+import CityView from "./CityView.vue";
 
+const router = useRouter()
 const searchQuery = ref("");
 const queryTimeout = ref(null);
 const searchResults = ref(null);
@@ -68,7 +69,20 @@ const getSearchResults = () => {
 
 const previewCity = (result) => {
   console.log("Selected:", result);
+  const [city, state] = result.display_name.split(",");
+  router.push({
+    name: "cityView",
+    params: {
+      state: state.replaceAll(" ",""),
+      city: city
+    },
+    query: {
+      lat: result.lat,
+      lon: result.lon,
+      preview:true
+    }
 
+  });
   const lat = result.lat;
   const lon = result.lon;
 
