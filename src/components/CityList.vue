@@ -2,8 +2,8 @@
     <div v-for="city in savedCities" :key="city.id">
         <CityCard :city="city" @click="goToCityView(city)" />
     </div>
-    <p v-if="savedCities.length===0">
-        No Location added. to start tracking a location , serach in 
+    <p v-if="savedCities.length === 0">
+        No Location added. to start tracking a location , serach in
         the filed above
     </p>
 </template>
@@ -58,6 +58,7 @@ const goToCityView = (city) => {
 
         },
         query: {
+            id: city.id,
             lat: city.coords.lat,
             lon: city.coords.lon
         }
