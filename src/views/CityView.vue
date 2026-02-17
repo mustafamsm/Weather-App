@@ -6,7 +6,7 @@
 
             <template #fallback>
  
-                    <h1 class="text-center">Loading...</h1>
+                   <CityViewSkeleton/>
                 
                  
             </template>
@@ -16,4 +16,5 @@
 
 <script setup>
 import AsyncCityView from '@/components/AsyncCityView.vue';
+import CityViewSkeleton from '@/components/CityViewSkeleton.vue';
 </script>
